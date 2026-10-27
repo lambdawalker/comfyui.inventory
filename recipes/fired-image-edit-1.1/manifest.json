@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "fired-image-edit-1.1",
+  "name": "FireRed Image Edit 1.1 (legacy recipe)",
+  "description": "FireRed Image Edit 1.1 model set recovered from the legacy download script.",
+  "workflow": null,
+  "models": [
+    {
+      "name": "FireRed-Image-Edit-1.1-transformer.safetensors",
+      "path": "models/diffusion_models/FireRed-Image-Edit-1.1-transformer.safetensors",
+      "url": "https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.1-ComfyUI/resolve/main/FireRed-Image-Edit-1.1-transformer.safetensors",
+      "size": 40861031488,
+      "sha256": "004b0326de38ffee22f104048d64670cfdf17c6f53a7349d9cd69d089505e219",
+      "gated": false,
+      "alternate_sha256": [
+        "0d33c56b63f3b0819dd476bc6264a520a73614d1549197ce2bb06c99e28440b8"
+      ]
+    },
+    {
+      "name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "path": "models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "size": 9384670680,
+      "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_vae.safetensors",
+      "path": "models/vae/qwen_image_vae.safetensors",
+      "url": "https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.0-ComfyUI/resolve/main/qwen_image_vae.safetensors",
+      "size": 253806246,
+      "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+      "gated": false
+    },
+    {
+      "name": "FireRed-Image-Edit-1.0-Lightning-8steps-v1.0.safetensors",
+      "path": "models/loras/FireRed-Image-Edit-1.0-Lightning-8steps-v1.0.safetensors",
+      "url": "https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.0-ComfyUI/resolve/main/FireRed-Image-Edit-1.0-Lightning-8steps-v1.0.safetensors",
+      "size": 849542744,
+      "sha256": "dc65fec1f5b92aa160deca7947c637b3e0f6016c1a22f87e1dabba053841cc7a",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "No saved workflow JSON for FireRed exists under `ComfyUI/user/default/workflows`; this recipe only installs the model set.",
+    "The old `download_fired_text_to_image.sh` script contained stray `[cite: N]` tokens in its model registry. The URLs here are clean and checksum-pinned.",
+    "The installed transformer is a valid safetensors file with SHA-256 `0d33c56b…`, while the current upstream file is `004b0326…`. Both checksums are accepted for an existing file; a fresh download uses the current upstream pin. This is a documented alternate revision, not corruption."
+  ]
+}

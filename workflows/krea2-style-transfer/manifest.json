@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "krea2-style-transfer",
+  "name": "Krea-2 Turbo - Style Transfer",
+  "description": "Krea-2 Turbo style-reference generation with the Krea-2 style LoRA.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "Krea2 Style Transfer.json",
+    "sha256": "adc147d8175a43fe4dc422f796cde96b28aec98befe5a60d7ee5876f3f9c01fa"
+  },
+  "models": [
+    {
+      "name": "krea2_turbo_int8_convrot.safetensors",
+      "path": "models/diffusion_models/krea2_turbo_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_int8_convrot.safetensors",
+      "size": 13492686496,
+      "sha256": "8e4eeda70dd5037ab1ba2bef6b417f9f901e26093117cf397f741fc1fdaaf3f1",
+      "gated": false
+    },
+    {
+      "name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "path": "models/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+      "size": 5242467968,
+      "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_vae.safetensors",
+      "path": "models/vae/qwen_image_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/vae/qwen_image_vae.safetensors",
+      "size": 253806246,
+      "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+      "gated": false
+    },
+    {
+      "name": "krea2_style_reference.safetensors",
+      "path": "models/loras/krea2_style_reference.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/loras/krea2_style_reference.safetensors",
+      "size": 457111760,
+      "sha256": "f50df5a9e62e4be8aa926a63dd5bb1a64770c4004f763c1208007ae13daa82b8",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "The workflow's `LoadImage` node expects `krea2_reference_image.png`; load your own reference image."
+  ]
+}

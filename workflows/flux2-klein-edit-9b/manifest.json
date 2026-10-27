@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "flux2-klein-edit-9b",
+  "name": "FLUX.2 Klein 9B - Image Edit",
+  "description": "FLUX.2 Klein 9B image editing with the FLUX.2 small-decoder VAE.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "Flux2 Klein Edit 9b.json",
+    "sha256": "1a635d1a0f84b57f9206c316c6728a3164c32e9c8a95346377196d0842fa2506"
+  },
+  "models": [
+    {
+      "name": "flux-2-klein-base-9b-fp8.safetensors",
+      "path": "models/diffusion_models/flux-2-klein-base-9b-fp8.safetensors",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-base-9b-fp8/resolve/main/flux-2-klein-base-9b-fp8.safetensors",
+      "size": 9567278472,
+      "sha256": "a9f5028c24a7a96f4f45beb883aad287d9bccc246227a6803edc898ddda42cf4",
+      "gated": true
+    },
+    {
+      "name": "qwen_3_8b_fp8mixed.safetensors",
+      "path": "models/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/flux2-klein-9B/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors",
+      "size": 8664848742,
+      "sha256": "abad16806e0cbabc54e0325d6565847443fe396d5f0be38bb3cd3fe75a1201d6",
+      "gated": false
+    },
+    {
+      "name": "full_encoder_small_decoder.safetensors",
+      "path": "models/vae/full_encoder_small_decoder.safetensors",
+      "url": "https://huggingface.co/black-forest-labs/FLUX.2-small-decoder/resolve/main/full_encoder_small_decoder.safetensors",
+      "size": 249519092,
+      "sha256": "ea4273f02d1fafbf8e1d1c2cf6018ed8748652eb0bf34f2dd91171f16f15ab62",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "The diffusion checkpoint is in a gated Hugging Face repository. Accept the license on [the model page](https://huggingface.co/black-forest-labs/FLUX.2-klein-base-9b-fp8) and make sure a token is available (`HF_TOKEN` or `huggingface-cli login`).",
+    "The saved workflow contains two copies of the 9B edit subgraph; both use the same three files."
+  ]
+}

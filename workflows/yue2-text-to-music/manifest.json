@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "id": "yue2-text-to-music",
+  "name": "YuE2 - Text to Music",
+  "description": "YuE2 text-to-music with native vocals and instrumental accompaniment.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "audio_yue2_text2music.json",
+    "sha256": "fcb17c21ca80356421e62db76353c0ffdb87ad847714e068000ceb4243a0415b"
+  },
+  "models": [
+    {
+      "name": "yue2_3b_bf16.safetensors",
+      "path": "models/checkpoints/yue2_3b_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/YuE2/resolve/main/checkpoints/yue2_3b_bf16.safetensors",
+      "size": 7799983228,
+      "sha256": "33765adbf9813c9a50318218760b2fd819a319862460a04884607581961c6fee",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "The saved workflow promotes a `ckpt_name` widget on the subgraph. Its active value is `yue2_3b_bf16.safetensors`, even though the inner loader and the Markdown note mention the int8 file.",
+    "To switch the workflow to the int8 checkpoint, also download `Comfy-Org/YuE2/checkpoints/yue2_3b_int8_convrot.safetensors`.",
+    "The old `install_ace_step_1.5_models.sh` script is unrelated to this workflow; ACE-Step is not used by YuE2."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "id": "qwen-image-2.1-t2i",
+  "name": "Qwen Image 2.1 - Text to Image",
+  "description": "Qwen Image 2.1 text-to-image with the t2i prompt enhancer.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "Qwen image 2.1.json",
+    "sha256": "381ed14caf52f77a2496e72afdef1b6cdb8704e577101ad08d6f1e2fa4e356ba"
+  },
+  "models": [
+    {
+      "name": "qwen_image_2.1_int8_convrot.safetensors",
+      "path": "models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "size": 7256783064,
+      "sha256": "cb74113cb03faecd79611b01fd7fd642f0aa60d6f0b95086abee214d75eaa57d",
+      "gated": false
+    },
+    {
+      "name": "qwen3vl_8b_int8_convrot.safetensors",
+      "path": "models/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "size": 9350798360,
+      "sha256": "8bfd0f6e12abf2d2d697ecc888e5e90b0d6741d6708f05799f53afa560452e8f",
+      "gated": false
+    },
+    {
+      "name": "qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+      "path": "models/text_encoders/qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3.5_9b_qwen_image_2.1_pe_t2i.int8_convrot.safetensors",
+      "size": 9471072252,
+      "sha256": "9182abae56fe05459840a86d22abd21f972061c92fce032630af680c8c5178d3",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_2.1_vae_bf16.safetensors",
+      "path": "models/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "size": 675509688,
+      "sha256": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "Two text encoders are required: the main Qwen3-VL encoder and the Qwen 3.5 text-to-image prompt enhancer."
+  ]
+}

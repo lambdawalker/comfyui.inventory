@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "qwen-image-2.1-separation",
+  "name": "Qwen Image 2.1 - Background Separation (legacy recipe)",
+  "description": "Qwen Image 2.1 background-removal model set plus the template's sample input.",
+  "workflow": null,
+  "models": [
+    {
+      "name": "qwen_image_2.1_int8_convrot.safetensors",
+      "path": "models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "size": 7256783064,
+      "sha256": "cb74113cb03faecd79611b01fd7fd642f0aa60d6f0b95086abee214d75eaa57d",
+      "gated": false
+    },
+    {
+      "name": "qwen3vl_8b_int8_convrot.safetensors",
+      "path": "models/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "size": 9350798360,
+      "sha256": "8bfd0f6e12abf2d2d697ecc888e5e90b0d6741d6708f05799f53afa560452e8f",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_2.1_vae_bf16.safetensors",
+      "path": "models/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "size": 675509688,
+      "sha256": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9",
+      "gated": false
+    },
+    {
+      "name": "angry_broccoli.png",
+      "path": "input/angry_broccoli.png",
+      "url": "https://raw.githubusercontent.com/Comfy-Org/workflow_templates/refs/heads/main/input/angry_broccoli.png",
+      "size": 1194081,
+      "sha256": "a407007c0d3d06c8647239ca5ac502097ccc42302317a4b817a338fb3aeee43b",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "No saved workflow JSON for this variant exists under `ComfyUI/user/default/workflows`; this recipe installs the model set and sample input only."
+  ]
+}

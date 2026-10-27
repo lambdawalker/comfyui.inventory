@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "id": "qwen-image-2.1-outpaint",
+  "name": "Qwen Image 2.1 - Outpaint",
+  "description": "Qwen Image 2.1 outpainting with the v2 outpaint LoRA.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "qwen-outpaint.json",
+    "sha256": "d73eba113d1bbec6ba66c7c700c6f47290b5cc700a2c08163e9e9cfc8e88a93b"
+  },
+  "models": [
+    {
+      "name": "qwen_image_2.1_int8_convrot.safetensors",
+      "path": "models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors",
+      "size": 7256783064,
+      "sha256": "cb74113cb03faecd79611b01fd7fd642f0aa60d6f0b95086abee214d75eaa57d",
+      "gated": false
+    },
+    {
+      "name": "qwen3vl_8b_int8_convrot.safetensors",
+      "path": "models/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+      "size": 9350798360,
+      "sha256": "8bfd0f6e12abf2d2d697ecc888e5e90b0d6741d6708f05799f53afa560452e8f",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_2.1_vae_bf16.safetensors",
+      "path": "models/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "size": 675509688,
+      "sha256": "bb21f7473051e1ac368515dd3f2e15cd44d7a11748ee8823e1ddca3e4876b7c9",
+      "gated": false
+    },
+    {
+      "name": "qwen-image-2.1-outpaint-v2.safetensors",
+      "path": "models/loras/qwen-image-2.1-outpaint-v2.safetensors",
+      "url": "https://huggingface.co/ausboss/Qwen-Image-2.1-Outpaint-LoRA/resolve/main/qwen-image-2.1-outpaint-v2.safetensors",
+      "size": 159436576,
+      "sha256": "3611a5ccae5f790405eeacf1dfb2c89285c1e4f2987b9abc88cd0161a60eca28",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "This workflow uses the v2 outpaint LoRA. The older `qwen-image-2.1-outpaint.safetensors` file is not required.",
+    "The workflow's `LoadImage` nodes are empty or point at a local sample; load your own image."
+  ]
+}
