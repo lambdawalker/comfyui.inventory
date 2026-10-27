@@ -36,13 +36,20 @@ fi
 
 # Progress and report lines go to stdout so `status`/`verify` can be
 # redirected; warnings and errors go to stderr.
-log()   { printf '%s\n' "$*"; }
-info()  { printf '%s\n' "$*"; }
-ok()    { printf '%s%s%s\n' "$C_GREEN" "$*" "$C_RESET"; }
-warn()  { printf '%sWARN:%s %s\n' "$C_YELLOW" "$C_RESET" "$*" >&2; }
-err()   { printf '%sERROR:%s %s\n' "$C_RED" "$C_RESET" "$*" >&2; }
+# Output helpers tolerate a closed pipe (for example `list | head`).
+log()   { printf '%s\n' "$*" 2>/dev/null || true; }
+info()  { printf '%s\n' "$*" 2>/dev/null || true; }
+ok()    { printf '%s%s%s\n' "$C_GREEN" "$*" "$C_RESET" 2>/dev/null || true; }
+warn()  { printf '%sWARN:%s %s\n' "$C_YELLOW" "$C_RESET" "$*" >&2 || true; }
+err()   { printf '%sERROR:%s %s\n' "$C_RED" "$C_RESET" "$*" >&2 || true; }
 die()   { err "$*"; exit 1; }
-debug() { if [[ "${CI_DEBUG:-0}" == "1" ]]; then printf '%sDEBUG:%s %s\n' "$C_DIM" "$C_RESET" "$*" >&2; fi; }
+debug() { if [[ "${CI_DEBUG:-0}" == "1" ]]; then printf '%sDEBUG:%s %s\n' "$C_DIM" "$C_RESET" "$*" >&2 || true; fi; }
+
+# printf wrapper for tabular report lines.
+outf() {
+  local fmt="$1"; shift
+  printf "$fmt" "$@" 2>/dev/null || true
+}
 
 # ---------------------------------------------------------------------------
 # Basic helpers
@@ -185,5 +192,5 @@ now_utc() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 timestamp() { date +%Y%m%d-%H%M%S; }
 
 print_rule() {
-  printf '%s\n' "--------------------------------------------------------------------------" >&2
+  printf '%s\n' "--------------------------------------------------------------------------" >&2 || true
 }

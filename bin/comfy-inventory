@@ -4,6 +4,8 @@
 # Each workflow folder contains a clean workflow.json, a pinned manifest.json,
 # and a thin install.sh wrapper that invokes this CLI.
 set -Eeuo pipefail
+# Report commands should exit cleanly when piped into `head`/`less`.
+trap '' PIPE
 
 CI_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 export CI_ROOT
@@ -26,7 +28,7 @@ source "$CI_ROOT/lib/installer.sh"
 VERSION="1.0.0"
 
 usage() {
-  cat <<'EOF'
+  cat <<'EOF' 2>/dev/null || true
 ComfyInventory - reproducible per-workflow installers for ComfyUI
 
 Usage:
@@ -259,8 +261,8 @@ resolve_manifests() {
 # ---------------------------------------------------------------------------
 cmd_list() {
   local m id kind name count total
-  printf '%-30s %-9s %7s %10s  %s\n' "ID" "KIND" "MODELS" "SIZE" "NAME"
-  printf '%-30s %-9s %7s %10s  %s\n' "------------------------------" "---------" "-------" "----------" "----"
+  outf '%-30s %-9s %7s %10s  %s\n' "ID" "KIND" "MODELS" "SIZE" "NAME"
+  outf '%-30s %-9s %7s %10s  %s\n' "------------------------------" "---------" "-------" "----------" "----"
   while IFS= read -r m; do
     [[ -n "$m" ]] || continue
     id="$(jq -r '.id // "?"' "$m")"
@@ -269,7 +271,7 @@ cmd_list() {
     kind="${kind%s}"
     count="$(jq -r '.models | length' "$m")"
     total="$(jq -r '[.models[].size] | add // 0' "$m")"
-    printf '%-30s %-9s %7s %10s  %s\n' "$id" "$kind" "$count" "$(human_size "$total")" "$name"
+    outf '%-30s %-9s %7s %10s  %s\n' "$id" "$kind" "$count" "$(human_size "$total")" "$name"
   done < <(find_manifests)
 }
 
