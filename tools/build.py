@@ -190,6 +190,25 @@ WORKFLOWS = [
         ],
         notes=[],
     ),
+    dict(
+        id="id-card-layer-split",
+        source="ID Card Layer Split.json",
+        name="ID Card - Layer Split (Qwen-Image-Layered Control)",
+        description="Prompt-controlled extraction of ID-card layers as RGBA images using Qwen-Image-Layered Control.",
+        models=[
+            ("DiffSynth-Studio/Qwen-Image-Layered-Control", "qwen_image_layered_control_bf16.safetensors", "diffusion_models"),
+            ("Comfy-Org/Qwen-Image-Layered_ComfyUI", "split_files/vae/qwen_image_layered_vae.safetensors", "vae"),
+            ("Comfy-Org/HunyuanVideo_1.5_repackaged", "split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors", "text_encoders"),
+        ],
+        notes=[
+            "The Control model extracts one layer per prompt. Run the workflow once for each target layer: portrait photo, printed text, hologram, security overlay, and background.",
+            "Use exact OCR strings for text layers, e.g. `Text \"SURNAME\"`. The model was trained on English prompts and supports negative prompts through the subgraph's Negative Prompt node.",
+            "The Control model is strongest on poster-like graphics and weaker on heavily overlapping or occluded elements. Holograms over photo/text may need a second pass.",
+            "1024 px input can lose microtext. For pixel-exact text or overlays, use SAM 3.1 masks, PaddleOCR boxes, and inpainting on the original scan instead of generative extraction.",
+            "Holograms are view-dependent; a single photo only captures one projection. Use a screen/overlay blend for the extracted hologram layer.",
+            "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services.",
+        ],
+    ),
 ]
 
 RECIPES = [

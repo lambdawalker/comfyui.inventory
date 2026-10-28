@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "id": "id-card-layer-split",
+  "name": "ID Card - Layer Split (Qwen-Image-Layered Control)",
+  "description": "Prompt-controlled extraction of ID-card layers as RGBA images using Qwen-Image-Layered Control.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "ID Card Layer Split.json",
+    "sha256": "3d42eb832e84c27ae0154dbccd4ccdab5679caef8ab89df872e1f3b8f3d551fc"
+  },
+  "models": [
+    {
+      "name": "qwen_image_layered_control_bf16.safetensors",
+      "path": "models/diffusion_models/qwen_image_layered_control_bf16.safetensors",
+      "url": "https://huggingface.co/DiffSynth-Studio/Qwen-Image-Layered-Control/resolve/main/qwen_image_layered_control_bf16.safetensors",
+      "size": 40861043888,
+      "sha256": "63b1966f0423bdc94d87273b8958de91e0a8f642c635f9113632d09cae3aa4ad",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_layered_vae.safetensors",
+      "path": "models/vae/qwen_image_layered_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Layered_ComfyUI/resolve/main/split_files/vae/qwen_image_layered_vae.safetensors",
+      "size": 253816616,
+      "sha256": "c5320595fc61859ccdd0282184208f7b781c983b8ce4c6bc3e7723a807d3d28d",
+      "gated": false
+    },
+    {
+      "name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "path": "models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "size": 9384670680,
+      "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "The Control model extracts one layer per prompt. Run the workflow once for each target layer: portrait photo, printed text, hologram, security overlay, and background.",
+    "Use exact OCR strings for text layers, e.g. `Text \"SURNAME\"`. The model was trained on English prompts and supports negative prompts through the subgraph's Negative Prompt node.",
+    "The Control model is strongest on poster-like graphics and weaker on heavily overlapping or occluded elements. Holograms over photo/text may need a second pass.",
+    "1024 px input can lose microtext. For pixel-exact text or overlays, use SAM 3.1 masks, PaddleOCR boxes, and inpainting on the original scan instead of generative extraction.",
+    "Holograms are view-dependent; a single photo only captures one projection. Use a screen/overlay blend for the extracted hologram layer.",
+    "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services."
+  ]
+}
