@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "id-card-inpaint-qwen-instantx",
+  "name": "ID Card - Inpaint (Qwen-Image InstantX ControlNet)",
+  "description": "Mask inpainting for ID-card backgrounds using Qwen-Image with the InstantX Inpainting ControlNet.",
+  "workflow": {
+    "file": "workflow.json",
+    "install_as": "ID Card Inpaint.json",
+    "sha256": "cd0a4f8f8754e737126c32625eca53030eedb1c50963e1dbc3c0211fa20d6ccc"
+  },
+  "models": [
+    {
+      "name": "qwen_image_fp8_e4m3fn.safetensors",
+      "path": "models/diffusion_models/qwen_image_fp8_e4m3fn.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_fp8_e4m3fn.safetensors",
+      "size": 20430635136,
+      "sha256": "98763a127701eb6fb59096f7742cb3aa7d64ed510b9f4e882d8351f8176e3ce3",
+      "gated": false
+    },
+    {
+      "name": "Qwen-Image-InstantX-ControlNet-Inpainting.safetensors",
+      "path": "models/controlnet/Qwen-Image-InstantX-ControlNet-Inpainting.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image-InstantX-ControlNets/resolve/main/split_files/controlnet/Qwen-Image-InstantX-ControlNet-Inpainting.safetensors",
+      "size": 4234599432,
+      "sha256": "49c01aafe6545c1f6e7627a724c8fb13357fe74efee235622158f0a8f30e5458",
+      "gated": false
+    },
+    {
+      "name": "Qwen-Image-Lightning-4steps-V1.0.safetensors",
+      "path": "models/loras/Qwen-Image-Lightning-4steps-V1.0.safetensors",
+      "url": "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-4steps-V1.0.safetensors",
+      "size": 1698951104,
+      "sha256": "9526e90d71c4290392feeccf3c2172cb77ab3a489f1faeb956637f97acb4c8b1",
+      "gated": false
+    },
+    {
+      "name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "path": "models/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+      "size": 9384670680,
+      "sha256": "cb5636d852a0ea6a9075ab1bef496c0db7aef13c02350571e388aea959c5c0b4",
+      "gated": false
+    },
+    {
+      "name": "qwen_image_vae.safetensors",
+      "path": "models/vae/qwen_image_vae.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+      "size": 253806246,
+      "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+      "gated": false
+    }
+  ],
+  "notes": [
+    "Paint the area to remove in MaskEditor: portrait photo, a text block, a hologram patch, or an overlay. Inpaint one small region at a time.",
+    "The active 20-step branch is quality-oriented. Enable the bypassed 4-step Lightning branch for faster iterations; the Lightning LoRA is included.",
+    "Use the `ImageCompositeMasked` output (`id-card-inpaint`) to preserve the exact original pixels outside the mask. The raw output is `id-card-inpaint-raw`.",
+    "Exact guilloche/microprint hidden behind a photo or hologram cannot be recovered; inpainting produces a plausible continuation. Clone nearby pattern regions or redraw security print when exactness matters.",
+    "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services."
+  ]
+}

@@ -209,6 +209,26 @@ WORKFLOWS = [
             "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services.",
         ],
     ),
+    dict(
+        id="id-card-inpaint-qwen-instantx",
+        source="ID Card Inpaint.json",
+        name="ID Card - Inpaint (Qwen-Image InstantX ControlNet)",
+        description="Mask inpainting for ID-card backgrounds using Qwen-Image with the InstantX Inpainting ControlNet.",
+        models=[
+            ("Comfy-Org/Qwen-Image_ComfyUI", "split_files/diffusion_models/qwen_image_fp8_e4m3fn.safetensors", "diffusion_models"),
+            ("Comfy-Org/Qwen-Image-InstantX-ControlNets", "split_files/controlnet/Qwen-Image-InstantX-ControlNet-Inpainting.safetensors", "controlnet"),
+            ("lightx2v/Qwen-Image-Lightning", "Qwen-Image-Lightning-4steps-V1.0.safetensors", "loras"),
+            ("Comfy-Org/Qwen-Image_ComfyUI", "split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors", "text_encoders"),
+            ("Comfy-Org/Qwen-Image_ComfyUI", "split_files/vae/qwen_image_vae.safetensors", "vae"),
+        ],
+        notes=[
+            "Paint the area to remove in MaskEditor: portrait photo, a text block, a hologram patch, or an overlay. Inpaint one small region at a time.",
+            "The active 20-step branch is quality-oriented. Enable the bypassed 4-step Lightning branch for faster iterations; the Lightning LoRA is included.",
+            "Use the `ImageCompositeMasked` output (`id-card-inpaint`) to preserve the exact original pixels outside the mask. The raw output is `id-card-inpaint-raw`.",
+            "Exact guilloche/microprint hidden behind a photo or hologram cannot be recovered; inpainting produces a plausible continuation. Clone nearby pattern regions or redraw security print when exactness matters.",
+            "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services.",
+        ],
+    ),
 ]
 
 RECIPES = [

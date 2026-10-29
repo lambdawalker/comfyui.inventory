@@ -14,7 +14,7 @@ The inventory was rebuilt from the saved workflows rather than from the older sc
 ./workflows/z-image-t2i/install.sh        # same thing
 ```
 
-**Unique payload:** 34 files, 276.0 GiB (shared files are counted once).
+**Unique payload:** 37 files, 300.5 GiB (shared files are counted once).
 
 ## Workflows
 
@@ -31,6 +31,7 @@ The inventory was rebuilt from the saved workflows rather than from the older sc
 | [`qwen-image-2.1-outpaint`](workflows/qwen-image-2.1-outpaint/README.md) | `qwen-outpaint.json` | 4 | 16.2 GiB |  |
 | [`z-image-t2i`](workflows/z-image-t2i/README.md) | `Z Image.json` | 3 | 19.3 GiB |  |
 | [`id-card-layer-split`](workflows/id-card-layer-split/README.md) | `ID Card Layer Split.json` | 3 | 47.0 GiB |  |
+| [`id-card-inpaint-qwen-instantx`](workflows/id-card-inpaint-qwen-instantx/README.md) | `ID Card Inpaint.json` | 5 | 33.5 GiB |  |
 
 ## Legacy recipes
 
