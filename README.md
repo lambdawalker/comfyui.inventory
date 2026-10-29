@@ -32,6 +32,7 @@ The inventory was rebuilt from the saved workflows rather than from the older sc
 | [`z-image-t2i`](workflows/z-image-t2i/README.md) | `Z Image.json` | 3 | 19.3 GiB |  |
 | [`id-card-layer-split`](workflows/id-card-layer-split/README.md) | `ID Card Layer Split.json` | 3 | 47.0 GiB |  |
 | [`id-card-inpaint-qwen-instantx`](workflows/id-card-inpaint-qwen-instantx/README.md) | `ID Card Inpaint.json` | 5 | 33.5 GiB |  |
+| [`id-card-inpaint-flux`](workflows/id-card-inpaint-flux/README.md) | `ID Card Inpaint FLUX.json` | 4 | 31.8 GiB |  |
 
 ## Legacy recipes
 

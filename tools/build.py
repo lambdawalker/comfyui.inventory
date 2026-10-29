@@ -229,6 +229,26 @@ WORKFLOWS = [
             "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services.",
         ],
     ),
+    dict(
+        id="id-card-inpaint-flux",
+        source="ID Card Inpaint FLUX.json",
+        name="ID Card - Inpaint (FLUX.1 Fill)",
+        description="Mask inpainting for ID-card backgrounds using the installed FLUX.1 Fill model.",
+        models=[
+            ("Comfy-Org/flux1-dev", "split_files/diffusion_models/flux1-fill-dev.safetensors", "diffusion_models"),
+            ("comfyanonymous/flux_text_encoders", "clip_l.safetensors", "text_encoders"),
+            ("comfyanonymous/flux_text_encoders", "t5xxl_fp16.safetensors", "text_encoders"),
+            ("Comfy-Org/Lumina_Image_2.0_Repackaged", "split_files/vae/ae.safetensors", "vae"),
+        ],
+        notes=[
+            "Upload the card as `id_card.png`, paint only the area to remove with MaskEditor, and edit the top-level `Inpaint prompt` node.",
+            "The workflow uses FLUX.1 Fill at 20 steps, CFG 1, FluxGuidance 30. It needs no new downloads; the model and encoders are already installed.",
+            "The `Composite original outside mask` output (`id-card-inpaint-flux`) restores exact original pixels outside the mask.",
+            "FLUX Fill is a general inpainting model and may smear fine guilloche/microprint. Switch to `id-card-inpaint-qwen-instantx` if structure preservation matters.",
+            "Exact security print hidden behind a photo or hologram cannot be recovered; clone nearby pattern regions or redraw when exactness matters.",
+            "Only process ID cards you are authorized to handle; run locally and avoid uploading real IDs to cloud services.",
+        ],
+    ),
 ]
 
 RECIPES = [
